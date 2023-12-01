@@ -55,7 +55,8 @@ const styles = StyleSheet.create({
 // Create Document Component
 export const PDFDocument = (props)=>{
     const {yah} = props;
-    
+    console.log(yah.customerName
+      )
     return (
 
         <Document> 
@@ -65,17 +66,22 @@ export const PDFDocument = (props)=>{
             <Text style={styles.title}>aasasas</Text> 
 
           </View> 
-          <View style={styles.definition}> 
+          {/* <View style={styles.definition}> 
             <Text >mo2asaset wa2t el ta7lya lel tegara</Text> 
             <Text >el ra2m el dareeby: 301053363100003</Text> 
             <Text>Roshn front</Text> 
             <Text>Start up hub</Text> 
             <Text>Riyadh, 13326</Text> 
-          </View> 
+          </View>  */}
           <View style={styles.definition}> 
-            <Text >bill To:</Text> 
-            <Text >Customer name</Text> 
+            <Text >customer name: {yah.customerName}</Text> 
+            <Text >product name: {yah.productName}</Text> 
+            <Text >price: {yah.price}</Text> 
+            <Text >quantity: {yah.quantity}</Text> 
+            <Text >billing type: {yah.billType}</Text> 
           </View> 
+
+         
           <View style={styles.table}> 
             <View style={styles.tableRow}> 
             <Text style={styles.tableCell}>Start</Text> 

@@ -22,7 +22,7 @@ const CalibrationCertificate = () => {
           
           >
             <p className="text-gray-800 font-medium text-center">
-              Calibration Certificate
+              YAH
             </p>
           
           
@@ -134,7 +134,7 @@ const CalibrationCertificate = () => {
          
          
             <div className="mt-4">
-              <button
+              {/* <button
                 className="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"
                 type="button"
               >
@@ -144,15 +144,14 @@ const CalibrationCertificate = () => {
                     loading ? 'Loading document...' : 'Export PDF'
                   }
               </PDFDownloadLink>
-              </button>
-              <PDFDownloadLink document={<PDFDocument yah={customerName}/>} 
+              </button> */}
+              <PDFDownloadLink document={<PDFDocument yah={{customerName, productName, price, quantity, billType}}/>} 
                 fileName={`YAHInvoice_${new Date().toLocaleDateString()}.pdf`}>
                   {({ blob, url, loading, error }) =>
                     loading ? 'Loading document...' : 'Export PDF'
                   }
               </PDFDownloadLink>
             </div>
-           
           </form>
         </div>
       </main>
