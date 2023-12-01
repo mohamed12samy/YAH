@@ -79,6 +79,8 @@ export const PDFDocument = (props)=>{
             <Text >price: {yah.price}</Text> 
             <Text >quantity: {yah.quantity}</Text> 
             <Text >billing type: {yah.billType}</Text> 
+            <Text >total Price: {yah.price * yah.quantity}</Text> 
+            <Text >date: {yah.date}</Text> 
           </View> 
 
          

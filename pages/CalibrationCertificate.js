@@ -8,10 +8,11 @@ import { Document, Page, Text, View,Font, StyleSheet,Image, PDFDownloadLink} fro
 
 const CalibrationCertificate = () => {
    const [customerName, setCustomerName] = useState("");
-  const [billType, setBillType] = useState("");
+  const [billType, setBillType] = useState("purchaseInvoice");
   const [productName, setProductName] = useState("");
   const [price, setPrice] = useState("");
   const [quantity, setQuantity] = useState("");
+  const [date, setDate] = useState("");
 
   return (
     <div className="">
@@ -130,7 +131,26 @@ const CalibrationCertificate = () => {
                 aria-label="Quantity"
               />
             </div>
-          
+
+            <div className="mt-2">
+              <label
+                className="block text-sm text-gray-00"
+                htmlFor="date"
+              >
+                Date
+              </label>
+              <input
+                className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
+                id="Date"
+                name="Date"
+                type="date"
+                autoComplete="off"
+                onChange={(e) => setDate(e.target.value)}
+                required
+                placeholder="Date"
+                aria-label="Date"
+              />
+            </div>
          
          
             <div className="mt-4">
@@ -145,7 +165,7 @@ const CalibrationCertificate = () => {
                   }
               </PDFDownloadLink>
               </button> */}
-              <PDFDownloadLink document={<PDFDocument yah={{customerName, productName, price, quantity, billType}}/>} 
+              <PDFDownloadLink document={<PDFDocument yah={{customerName, productName, price, quantity, billType, date}}/>} 
                 fileName={`YAHInvoice_${new Date().toLocaleDateString()}.pdf`}>
                   {({ blob, url, loading, error }) =>
                     loading ? 'Loading document...' : 'Export PDF'
