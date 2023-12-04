@@ -6,6 +6,7 @@ import autoTable from "jspdf-autotable";
 const CalibrationCertificate = () => {
   const [customerName, setCustomerName] = useState("");
   const [billType, setBillType] = useState("فاتورة مشتريات");
+  const [billNumber, setBillNumber] = useState("");
   const [productName, setProductName] = useState("");
   const [price, setPrice] = useState("");
   const [quantity, setQuantity] = useState("");
@@ -50,6 +51,10 @@ const CalibrationCertificate = () => {
 
     doc.setFontSize(20);
     doc.text("رقم الفاتورة  ", 70, 70, { align: "right" }); // align the text to the right
+    doc.setFontSize(15);
+    doc.text(`${billNumber}`, 33, 70, {
+      align: "right",
+    });
     doc.setFontSize(20);
     doc.text("تاريخ الفاتورة   ", 70, 80, { align: "right" }); // align the text to the right
     doc.setFontSize(15);
@@ -161,7 +166,9 @@ const CalibrationCertificate = () => {
       <main className="flex justify-center items-center">
         <div className="leading-loose">
           <form className="max-w-xl m-4 p-10 bg-white rounded shadow-xl text-lg">
-            <p className="text-gray-800 font-medium text-center">YAH</p>
+            <p className="text-gray-800 font-medium text-center">
+              ناشر لتدفئةو التبريد
+            </p>
 
             <div className="mt-2">
               <label
@@ -269,7 +276,25 @@ const CalibrationCertificate = () => {
                 aria-label="Quantity"
               />
             </div>
-
+            <div className="mt-2">
+              <label
+                className="block text-sm text-gray-00 text-right"
+                htmlFor="Price"
+              >
+                رقم الفاتورة
+              </label>
+              <input
+                className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded text-right"
+                id="billNumer"
+                name="Price"
+                type="number"
+                autoComplete="off"
+                onChange={(e) => setBillNumber(e.target.value)}
+                required
+                placeholder="رقم الفاتورة"
+                aria-label="Price"
+              />
+            </div>
             <div className="mt-2">
               <label
                 className="block text-sm text-gray-00 text-right"
